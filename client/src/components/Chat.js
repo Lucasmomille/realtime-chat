@@ -5,6 +5,7 @@ function Chat({socket, username, room}) {
     const [messageList, setMessageList] = useState([]);
 
     const sendMessage = async () => {
+       
         if (currentMessage !== ""){
             const messageData = {
                 room: room,
@@ -54,7 +55,16 @@ function Chat({socket, username, room}) {
             <div className="w-11/12 mx-auto mb-1 p-2 border-2 border-gray-300">
                 <input type="text" placeholder="Message..." value={currentMessage} className="w-8/12 p-2 focus:outline-none focus:ring-2 focus:ring-green-100
                 " onChange={(e) => {setCurrentMessage(e.target.value)}} />
-                <button className="w-2/12 p-2 bg-green-500 ml-2 text-white rounded-full" onClick={sendMessage}>Send</button>
+                <button 
+                    className="w-2/12 p-2 bg-green-500 ml-2 text-white rounded-full" 
+                    onClick={()=> {sendMessage()}}
+                    onKeyDown={(event) => {
+                            if (event.key === 'Enter') {
+                                sendMessage();
+                            }
+                        }}>
+                    Send
+                </button>
             </div>
         </div>
     )

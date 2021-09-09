@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-    #other {
+    #you {
         text-align: right;
         align-self: flex-end;
     }
-    #other .message__info {
+    #you .message__info {
         text-align: right;
         justify-content: flex-end;
         align-self: flex-end;

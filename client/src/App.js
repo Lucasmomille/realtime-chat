@@ -18,7 +18,7 @@ const joinRoom = () =>{
   }
 }
   return (
-    <div className="container mx-auto w-9/12 bg-green-100 p-4 text-center">
+    <div className="container mx-auto w-9/12 bg-green-100 p-4 text-center focus:outline-none focus:ring-0">
       <h1>Chat online</h1>
       <div className="w-7/12 mx-auto flex flex-col my-4">
         <input type="text" placeholder="Ton prénom" onChange={(e) => {setUsername(e.target.value)}}/>
