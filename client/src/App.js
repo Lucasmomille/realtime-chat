@@ -6,11 +6,13 @@ const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("")
+  const [room, setRoom] = useState("");
+  const [isOpen, setIsOpen] = useState(false)
 
 const joinRoom = () =>{
   if(username !== "" && room !== ""){
     socket.emit("join_room", room);
+    setIsOpen(true);
   } else {
     alert("Il manque le prénom ou l'id")
   }
@@ -23,7 +25,9 @@ const joinRoom = () =>{
         <input type="text" placeholder="id du chat" onChange={(e) => {setRoom(e.target.value)}}/>
         <button className="p-2 inline-block text-center w-3/12 mx-auto bg-blue-300 text-white rounded-md" onClick={joinRoom}>Rejoins un chat</button>
       </div>
+      {isOpen ? (
       <Chat socket={socket} username={username} room={room} />
+      ): null}
     </div>
   );
 }
