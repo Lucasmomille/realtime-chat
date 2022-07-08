@@ -2,8 +2,14 @@
 
 NodeJS, React, socket.io, TailwindCSS
 
-cd server and cd client
+### Run server
 
+cd server
 npm install
+npm start
 
+### Run client
+
+cd client
+npm install
 npm start
